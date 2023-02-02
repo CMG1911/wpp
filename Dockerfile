@@ -1,10 +1,11 @@
-FROM debian:11.6-slim 
-WORKDIR /opt/wpp
+FROM debian:11.6-slim
 CMD ["./demo"]
 EXPOSE 5000
-RUN apt-get update
-RUN apt-get install -y build-essential
+WORKDIR /opt/wpp
 COPY . .
-RUN make 
-RUN apt-get purge -y build-essential
-RUN apt autoremove -y 
+RUN apt-get update\
+    && apt-get install -y build-essential\
+    && make\
+    && apt-get purge -y build-essential\
+    && apt autoremove -y
+ 
