@@ -1,4 +1,4 @@
-FROM debian 
+FROM debian:11.6-slim 
 WORKDIR /opt/wpp
 CMD ["./demo"]
 EXPOSE 5000
